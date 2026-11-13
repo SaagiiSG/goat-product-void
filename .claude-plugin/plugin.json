@@ -1,0 +1,7 @@
+{
+  "name": "goat-product-void",
+  "version": "1.0.0",
+  "description": "Product Void · Хоосон дэвсгэр: cuts the product out of the user's photo or clip and shows it alone in pure black or white space, Apple-style, with a slow push-in, one clean Mongolian headline and a price line in the product's own colour. Renders a 1080x1920 MP4 for Reels/TikTok.",
+  "author": { "name": "GOAT Academy" },
+  "keywords": ["video", "editing", "reels", "tiktok", "product", "ecommerce", "minimal", "mongolian", "ffmpeg"]
+}
