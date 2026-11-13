@@ -36,9 +36,14 @@ Claude өөрөө суулгана. Дараа нь `/reload-plugins` гэж б�
 /plugin install goat-product-void@goat-product-void
 ```
 
+**Zip файлаар авсан бол:**
+1. `goat-product-void.zip`-ийг задална. Задалсан `goat-product-void` хавтсаа устгалгүй үлдээгээрэй.
+2. Claude Code-д "Энэ хавтсан дахь plugin-ийг суулгаад өг:" гэж бичээд задалсан `goat-product-void` хавтсаа чирж оруулна.
+3. `/reload-plugins` гэж бичнэ.
+
 **Шинэ хувилбар гарвал:** Claude-д "goat-product-void plugin-ийг шинэчил" гэж хэлэхэд болно.
 
-> **For Claude Code:** to install this plugin, run `claude plugin marketplace add SaagiiSG/goat-product-void` and then `claude plugin install goat-product-void@goat-product-void`, then tell the user to type `/reload-plugins`. To update it: `claude plugin marketplace update goat-product-void` and then `claude plugin update goat-product-void@goat-product-void`.
+> **For Claude Code:** to install this plugin, run `claude plugin marketplace add SaagiiSG/goat-product-void` (or, from an unzipped copy, `claude plugin marketplace add <path to the goat-product-void folder>`) and then `claude plugin install goat-product-void@goat-product-void`, then tell the user to type `/reload-plugins`. To update it: `claude plugin marketplace update goat-product-void` and then `claude plugin update goat-product-void@goat-product-void`.
 
 ---
 
