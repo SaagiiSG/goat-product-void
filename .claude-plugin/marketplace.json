@@ -1,6 +1,9 @@
 {
   "name": "goat-product-void",
-  "owner": { "name": "GOAT Academy" },
+  "owner": {
+    "name": "GOAT Academy"
+  },
+  "description": "Product Void · Хоосон дэвсгэр: one product alone in pure black or white space for Reels/TikTok. Mongolian-first.",
   "plugins": [
     {
       "name": "goat-product-void",
