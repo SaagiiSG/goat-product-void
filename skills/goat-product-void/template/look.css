@@ -1,0 +1,42 @@
+@font-face { font-family: "Inter"; src: url("fonts/Inter%5Bopsz,wght%5D.ttf"); font-weight: 100 900; }
+
+/* The void: pure black or pure white (look.js sets --void and the light for it). */
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--void, #000); }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--void, #000);
+  --floor: rgba(255, 255, 255, .11); --refl: rgba(0, 0, 0, .3); --edge: rgba(255, 255, 255, .12); --shade: none; }
+#root.white { --floor: rgba(0, 0, 0, .2); --refl: rgba(0, 0, 0, .16); --edge: rgba(0, 0, 0, .06);
+  --shade: 0 34px 70px rgba(0, 0, 0, .2); }
+.layer, .scene, .push, .enter { position: absolute; inset: 0; }
+.spot, .floor, .refl, .prod { position: absolute; }
+.prod img { display: block; width: 100%; height: 100%; }
+.flip, .sheen { background-size: 100% 100%; background-repeat: no-repeat; }
+
+/* The light behind the product (black only): a soft pool in the product's own colour; look.js sizes and tints it. */
+.white .spot { display: none; }
+/* The floor it stands on: a pool of light on black, a contact shadow on white. */
+.floor { background: radial-gradient(closest-side, var(--floor), rgba(0, 0, 0, 0)); }
+/* Its reflection on that floor: the picture flipped under its base, fading out over 40% of its height. */
+.refl { -webkit-mask-image: linear-gradient(to bottom, var(--refl), rgba(0, 0, 0, 0) 40%);
+  mask-image: linear-gradient(to bottom, var(--refl), rgba(0, 0, 0, 0) 40%); }
+.flip { width: 100%; height: 100%; transform: scaleY(-1); }
+/* A card: the photo with rounded corners and a hairline edge, so a dark photo doesn't melt into black. */
+.card .prod, .card .flip { border-radius: 30px; overflow: hidden; }
+.card .prod::after { content: ""; position: absolute; inset: 0; border-radius: 30px; box-shadow: inset 0 0 0 2px var(--edge); }
+.white .card .prod { box-shadow: var(--shade); overflow: hidden; }
+.white .cutout .prod > img { filter: drop-shadow(0 26px 30px rgba(0, 0, 0, .16)); }
+/* The sheen: a white copy of the product's solid part (product-<k>-sheen.png, so it follows the product's own outline
+   and never whitens see-through glass) seen through a soft diagonal band that look.js sweeps across once
+   (--sheen 100% -> 0%). */
+.sheen { position: absolute; inset: 0; opacity: .38; --sheen: 100%;
+  -webkit-mask-image: linear-gradient(115deg, rgba(0, 0, 0, 0) 44%, #000 50%, rgba(0, 0, 0, 0) 56%);
+  mask-image: linear-gradient(115deg, rgba(0, 0, 0, 0) 44%, #000 50%, rgba(0, 0, 0, 0) 56%);
+  -webkit-mask-size: 300% 100%; mask-size: 300% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: var(--sheen) 0; mask-position: var(--sheen) 0; }
+.card .sheen { opacity: .28; }
+
+/* preview .h: Inter 700, 100 px, line-height 1.05, -0.025 em, #F5F5F7 (near-black on white); its last row ends on
+   y 508. preview .s: Inter 400, the product's colour, from y 566; 50 px there, up to 56 px here, so a price reads on
+   a phone. Both centred on x 540 (look.js sets xPercent -50, the size and the top). */
+.headline, .line { position: absolute; left: 540px; top: 0; width: max-content; white-space: nowrap; text-align: center; }
+.headline { font: 700 100px/1.05 "Inter", sans-serif; letter-spacing: -0.025em; }
+.line { font: 400 56px/1 "Inter", sans-serif; }
